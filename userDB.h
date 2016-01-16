@@ -101,4 +101,4 @@ int database::getAcc(int i)
 {
 	return accnr[i];
 }
-#endif // !USERDB_H
+#endif
