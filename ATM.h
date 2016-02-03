@@ -8,11 +8,13 @@ using namespace std;
 void start()
 {
 	string emri;
-	bool textSwitch = false;
-	int gabim = 0, gabimeTeLejuara=2;
-	int k;
+	bool textSwitch = false,
+		userOption;
+	int gabim = 0, 
+		gabimeTeLejuara=2;
 	cout << "Mirsevini ne ATM v0.1" << endl; 
-	cout << "Shtypni 1 per te vazhduar! ";hyrja: cin >> k;
+	cout << "Shtypni 1 per te vazhduar! ";
+	hyrja: cin >> userOption;
 	if (gabim == 3) //mbyllet nrast qe shtypet 3her gabim
 		exit(0);
 	if (!cin) // Pjesa ku kqyret se a ka gabim(pasiqe nrast qe jep shkronja jep gabim)
@@ -22,11 +24,11 @@ void start()
 		gabim++;
 		goto hyrja;
 	} 
-	if (k == 1)//inicializohet useri i thjesht
+	if (userOption)//inicializohet useri i thjesht
 	{
 		normalUser();
 	}
-	else if (k == 0) // inicializohet queri per admin user
+	else if (!userOption) // inicializohet queri per admin user
 		 checkforAdmin();//usernameCheck.h
 	else if (!textSwitch) //Nrast gabim (k!=1||0) heren e par paraqitet kjo
 	{
