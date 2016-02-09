@@ -16,6 +16,37 @@ public:
 	int getPin(int i);
 	int getAcc(int i);
 	int totalUsera;
+	database()
+	{
+		int numrues = 0;
+		int Accnr, Pin; int i = 0;
+		double Sum;
+		string Emri, Mbiemri;
+		ifstream lexim("bankTest.dat", ios::in);
+		if (!lexim)
+		{
+			cerr << "\nKa ndodhur nje gabim ne qasjen e te dhenave, programi do te mbyllet ne: \n";
+			for (int i = 5; i>0; i--)
+			{
+				cout << i << endl;
+				Sleep(1000);
+			}
+			exit(1);
+		}
+		while (!lexim.eof())
+		{
+			lexim >> Accnr >> Pin >> Emri >> Mbiemri >> Sum;
+			pin[i] = Pin;
+			accnr[i] = Accnr;
+			emri[i] = Emri;
+			mbiemri[i] = Mbiemri;
+			sum[i] = Sum;
+			i++;
+			numrues++;
+		}
+		totalUsera = numrues;
+		lexim.close();
+	}
 	void add()
 	{
 		ofstream shkruaj("bankTest.dat", ios::app);
@@ -60,37 +91,6 @@ public:
 			shkruaj << accnr[i] << ' ' << pin[i] << ' ' << emri[i] << ' ' << mbiemri[i] << ' ' << sum[i] << endl;
 		}
 		shkruaj.close();
-	}
-	database()
-	{
-		int numrues = 0;
-		int Accnr, Pin; int i = 0;
-		double Sum;
-		string Emri, Mbiemri;
-		ifstream lexim("bankTest.dat", ios::in);
-		if (!lexim)
-		{
-			cerr << "\nKa ndodhur nje gabim ne qasjen e te dhenave, programi do te mbyllet ne: \n";
-			for (int i = 5; i>0; i--)
-			{
-				cout << i << endl;
-				Sleep(1000);
-			}
-			exit(1);
-		}
-		while (!lexim.eof())
-		{
-			lexim >> Accnr >> Pin >> Emri >> Mbiemri >> Sum;
-			pin[i] = Pin;
-			accnr[i] = Accnr;
-			emri[i] = Emri;
-			mbiemri[i] = Mbiemri;
-			sum[i] = Sum;
-			i++;
-			numrues++;
-		}
-		totalUsera = numrues;
-		lexim.close();
 	}
 };
 int database::getPin(int i)
