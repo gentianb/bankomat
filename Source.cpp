@@ -3,7 +3,7 @@
 int main()
 {
 	start();
-	cout << "Goodbye\n";
+	cout << "Program is closing, thank you for using me\n";
 	system("pause");
 	return 0;
 }
