@@ -8,4 +8,4 @@ Contents of admin.dat should be like this:
 
 Contents of bankTest.dat should be like this:
   AccountNumber PIN Name Surname Deposit
-
+Search for users is case sensitive*
